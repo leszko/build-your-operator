@@ -1,0 +1,20 @@
+# permissions for end users to view hazelcasts.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hazelcast-viewer-role
+rules:
+- apiGroups:
+  - charts.my.domain
+  resources:
+  - hazelcasts
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - charts.my.domain
+  resources:
+  - hazelcasts/status
+  verbs:
+  - get
