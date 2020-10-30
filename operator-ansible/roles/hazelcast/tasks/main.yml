@@ -1,0 +1,22 @@
+---
+- name: start hazelcast
+  community.kubernetes.k8s:
+    definition:
+      kind: Deployment
+      apiVersion: apps/v1
+      metadata:
+        name: hazelcast
+        namespace: '{{ ansible_operator_meta.namespace }}'
+      spec:
+        replicas: "{{size}}"
+        selector:
+          matchLabels:
+            app: hazelcast
+        template:
+          metadata:
+            labels:
+              app: hazelcast
+          spec:
+            containers:
+            - name: hazelcast
+              image: "hazelcast/hazelcast:4.0"

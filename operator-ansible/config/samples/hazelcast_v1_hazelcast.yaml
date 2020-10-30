@@ -1,0 +1,6 @@
+apiVersion: hazelcast.my.domain/v1
+kind: Hazelcast
+metadata:
+  name: hazelcast-sample
+spec:
+  size: 1

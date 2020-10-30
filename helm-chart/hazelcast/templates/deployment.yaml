@@ -5,11 +5,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      some-label: hazelcast
+      app: hazelcast
   template:
     metadata:
       labels:
-        some-label: hazelcast
+        app: hazelcast
     spec:
       containers:
         - name: hazelcast
