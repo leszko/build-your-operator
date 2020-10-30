@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec7c652-b173-497e-8171-74634a537903" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/hazelcast_types.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/hazelcast_types.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/zz_generated.deepcopy.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/zz_generated.deepcopy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/manager" beforeDir="false" afterPath="$PROJECT_DIR$/bin/manager" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/crd/bases/hazelcast.my.domain_hazelcasts.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/crd/bases/hazelcast.my.domain_hazelcasts.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/manager/kustomization.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/manager/kustomization.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/rbac/role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/rbac/role.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/samples/hazelcast_v1_hazelcast.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/samples/hazelcast_v1_hazelcast.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/hazelcast_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/hazelcast_controller.go" afterDir="false" />
-    </list>
+    <list default="true" id="0ec7c652-b173-497e-8171-74634a537903" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: leszko/hazelcast-operator
-  newTag: ansible-2
+  newTag: ansible
