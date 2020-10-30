@@ -25,9 +25,9 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/types"
+	"reflect"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
-	"reflect"
 
 	hazelcastv1 "github.com/leszko/hazelcast-operator/api/v1"
 )
@@ -83,6 +83,19 @@ func (r *HazelcastReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		return ctrl.Result{}, err
 	}
 
+	// Ensure the deployment size is the same as the spec
+	size := hazelcast.Spec.Size
+	if *found.Spec.Replicas != size {
+		found.Spec.Replicas = &size
+		err = r.Update(ctx, found)
+		if err != nil {
+			log.Error(err, "Failed to update Deployment", "Deployment.Namespace", found.Namespace, "Deployment.Name", found.Name)
+			return ctrl.Result{}, err
+		}
+		// Spec updated - return and requeue
+		return ctrl.Result{Requeue: true}, nil
+	}
+
 	// Update the Hazelcast status with the pod names
 	// List the pods for this hazelcast's deployment
 	podList := &corev1.PodList{}
@@ -112,6 +125,7 @@ func (r *HazelcastReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 // deploymentForHazelcast returns a hazelcast Deployment object
 func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *appsv1.Deployment {
 	ls := labelsForHazelcast(m.Name)
+	replicas := m.Spec.Size
 
 	dep := &appsv1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
@@ -119,6 +133,7 @@ func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *
 			Namespace: m.Namespace,
 		},
 		Spec: appsv1.DeploymentSpec{
+			Replicas: &replicas,
 			Selector: &metav1.LabelSelector{
 				MatchLabels: ls,
 			},
@@ -128,8 +143,8 @@ func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *
 				},
 				Spec: corev1.PodSpec{
 					Containers: []corev1.Container{{
-						Image:   "hazelcast/hazelcast:4.0",
-						Name:    "hazelcast",
+						Image: "hazelcast/hazelcast:4.1-BETA-1",
+						Name:  "hazelcast",
 					}},
 				},
 			},

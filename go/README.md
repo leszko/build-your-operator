@@ -7,6 +7,15 @@ operator-sdk create api --version v1 --group=hazelcast --kind Hazelcast --resour
 
 2. Add logic to create Deployment resources `Hazelcast` is created
 
+Update `api/v1/hazelcast-types.go`
+```
+type HazelcastSpec struct {
+	Size int32 `json:"size,omitempty"`
+}
+```
+
+Run `make`.
+
 Update `controllers/hazelcast_controller.go`
 
 Section `import`
@@ -21,8 +30,8 @@ Section `import`
 
 Function `Reconcile` and others.
 ```
-// +kubebuilder:rbac:groups=cache.example.com,resources=memcacheds,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=cache.example.com,resources=memcacheds/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=hazelcast.my.domain,resources=hazelcasts,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=hazelcast.my.domain,resources=hazelcasts/status,verbs=get;update;patch
 // +kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=core,resources=pods,verbs=get;list;watch
 
@@ -94,6 +103,7 @@ func (r *HazelcastReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 // deploymentForHazelcast returns a hazelcast Deployment object
 func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *appsv1.Deployment {
 	ls := labelsForHazelcast(m.Name)
+	replicas := m.Spec.Size
 
 	dep := &appsv1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
@@ -101,6 +111,7 @@ func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *
 			Namespace: m.Namespace,
 		},
 		Spec: appsv1.DeploymentSpec{
+			Replicas: &replicas,
 			Selector: &metav1.LabelSelector{
 				MatchLabels: ls,
 			},
@@ -110,8 +121,8 @@ func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *
 				},
 				Spec: corev1.PodSpec{
 					Containers: []corev1.Container{{
-						Image:   "hazelcast/hazelcast:4.0",
-						Name:    "hazelcast",
+						Image: "hazelcast/hazelcast:4.0",
+						Name:  "hazelcast",
 					}},
 				},
 			},
@@ -170,7 +181,7 @@ kubectl logs deployment.apps/hazelcast-operator-controller-manager -n hazelcast-
 kubectl apply -f config/samples/hazelcast_v1_hazelcast.yaml
 ```
 
-7. Present that Hazelcast is running
+7. Present that Hazelcast is running and scale up
 
 8. Uninstall
 

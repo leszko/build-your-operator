@@ -36,10 +36,11 @@ spec:
         spec:
           description: HazelcastSpec defines the desired state of Hazelcast
           properties:
-            foo:
+            size:
               description: Foo is an example field of Hazelcast. Edit Hazelcast_types.go
                 to remove/update
-              type: string
+              format: int32
+              type: integer
           type: object
         status:
           description: HazelcastStatus defines the observed state of Hazelcast

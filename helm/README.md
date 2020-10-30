@@ -34,7 +34,7 @@ kubectl logs deployment.apps/helm-controller-manager -n helm-system -c manager
 kubectl apply -f config/samples/hazelcast_v1_hazelcast.yaml
 ```
 
-7. Present that Hazelcast is running and scaling up
+7. Present that Hazelcast is running and scale up
 
 8. Uninstall
 
