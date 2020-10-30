@@ -1,0 +1,6 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: hazelcast.my.domain
+  version: v1
+  kind: Hazelcast
+  chart: helm-charts/hazelcast
+# +kubebuilder:scaffold:watch

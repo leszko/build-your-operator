@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hazelcast.fullname" . }}
+spec:
+  replicas: {{ .Values.size }}
+  selector:
+    matchLabels:
+      app: hazelcast
+  template:
+    metadata:
+      labels:
+        app: hazelcast
+    spec:
+      containers:
+        - name: hazelcast
+          image: "hazelcast/hazelcast:4.1-BETA-1"
