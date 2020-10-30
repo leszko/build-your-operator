@@ -1,0 +1,7 @@
+apiVersion: hazelcast.my.domain/v1
+kind: Hazelcast
+metadata:
+  name: hazelcast-sample
+spec:
+  # Add fields here
+  foo: bar

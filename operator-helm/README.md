@@ -20,7 +20,7 @@ make install
 make deploy IMG=leszko/hazelcast-operator:helm
 ```
 
-4. Check that the operator is running.
+4. Check that the operator is running
 
 ```
 kubectl logs deployment.apps/operator-helm-controller-manager -n operator-helm-system -c manager
