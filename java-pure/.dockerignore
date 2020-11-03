@@ -1,0 +1,5 @@
+*
+!src/main/docker/libsunec.so
+!target/*-runner
+!target/*-runner.jar
+!target/lib/*
