@@ -34,4 +34,8 @@ kubectl apply -f hazelcast.yaml
 ```
 kubectl delete -f hazelcast.yaml
 kubectl delete -f operator.deployment.yaml
+kubectl delete -f operator.clusterrole.yaml
+kubectl delete -f operator.serviceaccount.yaml
+kubectl delete -f operator.clusterrolebinding.yaml
+kubectl delete -f hazelcast.crd.yaml
 ```
