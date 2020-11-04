@@ -12,8 +12,7 @@ spec:
       labels:
         app: operator
     spec:
-      serviceAccountName: operator
       containers:
-        - image: leszko/hazelcast-operator:java-native
+        - image: leszko/hazelcast-operator:kopf
           name: hazelcast-operator
           imagePullPolicy: Always

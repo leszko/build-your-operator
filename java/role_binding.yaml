@@ -4,7 +4,7 @@ metadata:
   name: operator
 subjects:
   - kind: ServiceAccount
-    name: operator
+    name: default
     namespace: default
 roleRef:
   kind: ClusterRole

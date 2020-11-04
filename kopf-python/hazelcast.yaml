@@ -3,4 +3,4 @@ kind: Hazelcast
 metadata:
   name: hazelcast-sample
 spec:
-  size: 2
+  size: 1

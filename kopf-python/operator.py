@@ -45,6 +45,6 @@ def create_deployment(spec):
             spec:
               containers:
                 - name: hazelcast
-                  image: "hazelcast/hazelcast:4.1-BETA-1"
+                  image: "hazelcast/hazelcast:4.1"
     """)
 

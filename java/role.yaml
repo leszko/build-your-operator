@@ -3,9 +3,6 @@ kind: ClusterRole
 metadata:
   name: operator
 rules:
-  ##
-  ## Base operator rules
-  ##
   - apiGroups:
       - ""
     resources:
@@ -36,9 +33,6 @@ rules:
       - patch
       - update
       - watch
-  ##
-  ## Rules for hazelcast.my.domain/v1, Kind: Hazelcast
-  ##
   - apiGroups:
       - hazelcast.my.domain
     resources:
