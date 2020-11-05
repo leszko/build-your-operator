@@ -143,7 +143,7 @@ func (r *HazelcastReconciler) deploymentForHazelcast(m *hazelcastv1.Hazelcast) *
 				},
 				Spec: corev1.PodSpec{
 					Containers: []corev1.Container{{
-						Image: "hazelcast/hazelcast:4.1-BETA-1",
+						Image: "hazelcast/hazelcast:4.1",
 						Name:  "hazelcast",
 					}},
 				},

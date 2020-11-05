@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: leszko/hazelcast-operator
-  newTag: go-2
+  newTag: go

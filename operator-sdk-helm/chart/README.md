@@ -1,24 +1,23 @@
 # Steps to create Helm Chart
 
-1. Create a sample helm chart
+#### 1. Create a sample helm chart
 
 ```
 helm create hazelcast
 ```
 
-2. Change the image to `hazelcast/hazelcast:4.1-BETA-1`
+#### 2. Update the chart
 
-3. Remove all unused parts in template and values
+* change the image to `hazelcast/hazelcast:4.1`
+* remove all unused parts in template and values
 
-4. Install Helm Chart
+#### 3. Install Helm Chart
 
 ```
 helm install hazelcast .
 ```
 
-5. Play with the Helm Chart
-
-6. Uninstall the chart
+#### 4. Clean up
 
 ```
 helm uninstall hazelcast
