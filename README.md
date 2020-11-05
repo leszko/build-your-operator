@@ -45,3 +45,11 @@ kubectl apply -f operator.yaml
 ```
 kubectl apply -f hazelcast.yaml
 ```
+
+### Operator Tools & Techniques
+
+* [Operator SDK: Helm](operator-sdk-helm) - Generate Operator from a Helm Chart
+* [Operator SDK: Ansible](operator-sdk-ansible) - Create Operator using Ansible
+* [Operator SDK: Go](operator-sdk-go) - Write Operator in Go language using Operator SDK
+* [KOPF (Kubernetes Operator Pythonic Framework)](kopf) - Write Operator with KOPF using Python
+* [Java](java) - Write Operator with Java (and Quarkus for Docker native builds)
