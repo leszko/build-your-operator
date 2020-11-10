@@ -13,6 +13,6 @@ spec:
         app: operator
     spec:
       containers:
-        - image: <name>/hazelcast-operator:
+        - image: <name>/hazelcast-operator
           name: hazelcast-operator
           imagePullPolicy: Always
