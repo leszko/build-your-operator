@@ -51,6 +51,8 @@ kubectl apply -f operator.deployment.native.yaml
 kubectl apply -f hazelcast.yaml
 ```
 
+Note: If you want Hazelcast members themselves to form a cluster, you need to configure RBAC for Hazelcast: `kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml`.
+
 #### 6. Clean up
 ```
 kubectl delete -f hazelcast.yaml

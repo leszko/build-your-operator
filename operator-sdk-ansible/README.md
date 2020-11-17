@@ -41,6 +41,8 @@ kubectl logs deployment.apps/operator-ansible-controller-manager -n operator-ans
 kubectl apply -f config/samples/hazelcast_v1_hazelcast.yaml
 ```
 
+Note: If you want Hazelcast members themselves to form a cluster, you need to configure RBAC for Hazelcast: `kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml`.
+
 #### 6. Clean up
 
 ```
