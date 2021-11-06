@@ -43,7 +43,7 @@ kubectl apply -f operator.yaml
 
 ##### 4.2. Native build
 ```
-kubectl apply -f operator.deployment.native.yaml
+kubectl apply -f operator.native.yaml
 ```
 
 #### 5. Create Hazelcast Resource
